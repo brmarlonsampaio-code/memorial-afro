@@ -1,0 +1,581 @@
+{
+  "pontos": [
+    {
+      "id": "cais-valongo",
+      "nome": "Cais do Valongo",
+      "categoria": "sitio_arqueologico",
+      "categoria_label": "Sítio Arqueológico",
+      "lat": -22.8976,
+      "lon": -43.1915,
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "periodo": "1811-1831",
+      "descricao": "Principal porto de desembarque de africanos escravizados na América. Reconhecido como Patrimônio Mundial da UNESCO em 2017. Cerca de 500 mil a 1 milhão de africanos desembarcaram aqui.",
+      "fontes": [
+        "IPHAN",
+        "UNESCO",
+        "Prefeitura do Rio"
+      ],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Cais_do_Valongo.jpg/800px-Cais_do_Valongo.jpg",
+      "video": "https://www.youtube.com/embed/jOkyjURCafs",
+      "links": [
+        {
+          "titulo": "UNESCO - Cais do Valongo",
+          "url": "https://whc.unesco.org/en/list/1548"
+        },
+        {
+          "titulo": "IPHAN - Dossiê",
+          "url": "https://bibliotecadigital.iphan.gov.br/items/a57c1881-e125-4faf-b5b1-ad3745e19af4/full"
+        },
+        {
+          "titulo": "Wikipédia",
+          "url": "https://pt.wikipedia.org/wiki/Cais_do_Valongo"
+        }
+      ],
+      "documentos": [
+        "Dossiê UNESCO 2016",
+        "Lei 15.203/2025",
+        "Portaria IPHAN 88/2023"
+      ],
+      "cor": "#8B0000"
+    },
+    {
+      "id": "pedra-do-sal",
+      "nome": "Pedra do Sal",
+      "categoria": "monumento",
+      "categoria_label": "Monumento Histórico",
+      "lat": -22.8973,
+      "lon": -43.1864,
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "periodo": "Século XVII-XX",
+      "descricao": "Primeiro patrimônio afro-brasileiro tombado no Brasil (1984). Berço do samba e centro de resistência cultural negra na Pequena África.",
+      "fontes": [
+        "INEPAC",
+        "IPHAN"
+      ],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Pedra_do_Sal_RJ.jpg/800px-Pedra_do_Sal_RJ.jpg",
+      "video": null,
+      "links": [
+        {
+          "titulo": "INEPAC - Tombamento",
+          "url": "http://www.inepac.rj.gov.br/"
+        },
+        {
+          "titulo": "IPHAN",
+          "url": "https://www.gov.br/iphan/pt-br"
+        }
+      ],
+      "documentos": [
+        "Processo de Tombamento E-18/300.048/84"
+      ],
+      "cor": "#D4AF37"
+    },
+    {
+      "id": "cemiterio-pretos-novos",
+      "nome": "Cemitério dos Pretos Novos",
+      "categoria": "memorial",
+      "categoria_label": "Memorial",
+      "lat": -22.8958,
+      "lon": -43.191,
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "periodo": "1769-1830",
+      "descricao": "Cemitério clandestino onde foram enterrados mais de 50 mil africanos escravizados. Hoje abriga o Instituto de Pesquisa e Memória Pretos Novos (IPN).",
+      "fontes": [
+        "IPN",
+        "IPHAN"
+      ],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Cemit%C3%A9rio_dos_Pretos_Novos.jpg/800px-Cemit%C3%A9rio_dos_Pretos_Novos.jpg",
+      "video": "https://www.youtube.com/embed/DyGpxky1dEA",
+      "links": [
+        {
+          "titulo": "Instituto Pretos Novos",
+          "url": "https://www.pretosnovos.org.br/"
+        }
+      ],
+      "documentos": [
+        "Relatórios arqueológicos IPN",
+        "Levantamento ossadas 1996-2016"
+      ],
+      "cor": "#2F4F4F"
+    },
+    {
+      "id": "ile-axe-opo-afonja",
+      "nome": "Terreiro Ilê Axé Opô Afonjá",
+      "categoria": "terreiro",
+      "categoria_label": "Terreiro de Matriz Africana",
+      "lat": -22.8167,
+      "lon": -43.35,
+      "cidade": "São João de Meriti",
+      "uf": "RJ",
+      "periodo": "1886-presente",
+      "descricao": "Fundado por Mãe Aninha em 1886. Primeiro terreiro de Candomblé tombado pelo INEPAC no Rio de Janeiro. Sede da Federação Internacional de Culto Afro-Brasileiro (FICAB).",
+      "fontes": [
+        "INEPAC",
+        "IPHAN",
+        "FICAB"
+      ],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Il%C3%AA_Ax%C3%A9_Op%C3%B4_Afonj%C3%A1.jpg/800px-Il%C3%AA_Ax%C3%A9_Op%C3%B4_Afonj%C3%A1.jpg",
+      "video": null,
+      "links": [
+        {
+          "titulo": "FICAB",
+          "url": "https://ficab.org.br/"
+        },
+        {
+          "titulo": "INEPAC",
+          "url": "http://www.inepac.rj.gov.br/"
+        }
+      ],
+      "documentos": [
+        "Processo de Tombamento E-18/001/305/2016",
+        "Dossiê PRMFA 2015"
+      ],
+      "cor": "#800080"
+    },
+    {
+      "id": "serra-da-barriga",
+      "nome": "Serra da Barriga",
+      "categoria": "quilombo",
+      "categoria_label": "Quilombo / Território",
+      "lat": -9.2833,
+      "lon": -36.4167,
+      "cidade": "União dos Palmares",
+      "uf": "AL",
+      "periodo": "Século XVII",
+      "descricao": "Sítio arqueológico do Quilombo dos Palmares, liderado por Zumbi. Reconhecido como Patrimônio Cultural da Humanidade pela UNESCO. Símbolo máximo da resistência negra no Brasil.",
+      "fontes": [
+        "IPHAN",
+        "UNESCO",
+        "FCP"
+      ],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Serra_da_Barriga.jpg/800px-Serra_da_Barriga.jpg",
+      "video": null,
+      "links": [
+        {
+          "titulo": "UNESCO - Palmares",
+          "url": "https://whc.unesco.org/"
+        },
+        {
+          "titulo": "FCP - Palmares",
+          "url": "https://www.palmares.gov.br/"
+        }
+      ],
+      "documentos": [
+        "Dossiê UNESCO",
+        "Decreto de Tombamento"
+      ],
+      "cor": "#228B22"
+    },
+    {
+      "id": "quilombo-sao-roque",
+      "nome": "Quilombo São Roque",
+      "categoria": "quilombo",
+      "categoria_label": "Quilombo / Território",
+      "lat": -24.0,
+      "lon": -46.5,
+      "cidade": "Praia Grande",
+      "uf": "SC",
+      "periodo": "Século XIX",
+      "descricao": "Comunidade remanescente de quilombo em Santa Catarina. Objeto de inventário nacional de referências culturais pelo IPHAN.",
+      "fontes": [
+        "IPHAN",
+        "INCRA",
+        "Conaq"
+      ],
+      "imagem": null,
+      "video": null,
+      "links": [
+        {
+          "titulo": "IPHAN - Inventário",
+          "url": "https://www.gov.br/iphan/pt-br"
+        }
+      ],
+      "documentos": [
+        "INRC Quilombo São Roque"
+      ],
+      "cor": "#228B22"
+    },
+    {
+      "id": "capoeira-bahia",
+      "nome": "Roda de Capoeira - Pelourinho",
+      "categoria": "bem_imaterial",
+      "categoria_label": "Bem Cultural Imaterial",
+      "lat": -12.9714,
+      "lon": -38.5108,
+      "cidade": "Salvador",
+      "uf": "BA",
+      "periodo": "Século XIX-presente",
+      "descricao": "A Roda de Capoeira e o Ofício dos Mestres de Capoeira foram registrados pelo IPHAN em 2008. O Pelourinho é um dos principais palcos da capoeira angola.",
+      "fontes": [
+        "IPHAN",
+        "UNESCO"
+      ],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Capoeira_Salvador.jpg/800px-Capoeira_Salvador.jpg",
+      "video": null,
+      "links": [
+        {
+          "titulo": "IPHAN - Capoeira",
+          "url": "https://www.gov.br/iphan/pt-br"
+        }
+      ],
+      "documentos": [
+        "Registro IPHAN 2008",
+        "Plano de Salvaguarda"
+      ],
+      "cor": "#FF8C00"
+    },
+    {
+      "id": "oficio-baianas",
+      "nome": "Ofício das Baianas de Acarajé",
+      "categoria": "bem_imaterial",
+      "categoria_label": "Bem Cultural Imaterial",
+      "lat": -12.9714,
+      "lon": -38.5108,
+      "cidade": "Salvador",
+      "uf": "BA",
+      "periodo": "Século XIX-presente",
+      "descricao": "Registrado pelo IPHAN em 2004. As baianas de acarajé representam a resistência cultural e religiosa das mulheres negras, mantendo viva a tradição gastronômica e religiosa iorubá.",
+      "fontes": [
+        "IPHAN",
+        "UNESCO"
+      ],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Baianas_de_acaraje.jpg/800px-Baianas_de_acaraje.jpg",
+      "video": null,
+      "links": [
+        {
+          "titulo": "IPHAN - Baianas",
+          "url": "https://www.gov.br/iphan/pt-br"
+        }
+      ],
+      "documentos": [
+        "Registro IPHAN 2004",
+        "Dossiê Baianas de Acarajé"
+      ],
+      "cor": "#FF8C00"
+    },
+    {
+      "id": "maracatu-nacao",
+      "nome": "Maracatu Nação",
+      "categoria": "bem_imaterial",
+      "categoria_label": "Bem Cultural Imaterial",
+      "lat": -8.0476,
+      "lon": -34.877,
+      "cidade": "Recife",
+      "uf": "PE",
+      "periodo": "Século XIX-presente",
+      "descricao": "Registrado pelo IPHAN em 2007. O Maracatu Nação é uma manifestação cultural que recria as cortes reais africanas no Brasil, com forte componente religioso de matriz africana.",
+      "fontes": [
+        "IPHAN",
+        "FUNDARPE"
+      ],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Maracatu_Nacao.jpg/800px-Maracatu_Nacao.jpg",
+      "video": null,
+      "links": [
+        {
+          "titulo": "IPHAN - Maracatu",
+          "url": "https://www.gov.br/iphan/pt-br"
+        }
+      ],
+      "documentos": [
+        "Registro IPHAN 2007",
+        "Plano de Salvaguarda Maracatu Nação"
+      ],
+      "cor": "#FF8C00"
+    },
+    {
+      "id": "jongo-sudeste",
+      "nome": "Jongo no Sudeste",
+      "categoria": "bem_imaterial",
+      "categoria_label": "Bem Cultural Imaterial",
+      "lat": -22.5,
+      "lon": -44.1,
+      "cidade": "Vassouras",
+      "uf": "RJ",
+      "periodo": "Século XIX-presente",
+      "descricao": "Registrado pelo IPHAN em 2005. O Jongo é uma manifestação cultural de origem bantu, praticada em comunidades quilombolas e rurais do Rio de Janeiro e São Paulo.",
+      "fontes": [
+        "IPHAN",
+        "UNESCO"
+      ],
+      "imagem": null,
+      "video": null,
+      "links": [
+        {
+          "titulo": "IPHAN - Jongo",
+          "url": "https://www.gov.br/iphan/pt-br"
+        }
+      ],
+      "documentos": [
+        "Registro IPHAN 2005",
+        "INRC Jongo Sudeste"
+      ],
+      "cor": "#FF8C00"
+    },
+    {
+      "id": "terreiro-casa-branca",
+      "nome": "Terreiro Ilê Axé Iyá Nassô Oká (Casa Branca)",
+      "categoria": "terreiro",
+      "categoria_label": "Terreiro de Matriz Africana",
+      "lat": -12.9833,
+      "lon": -38.5167,
+      "cidade": "Cachoeira",
+      "uf": "BA",
+      "periodo": "1830-presente",
+      "descricao": "Primeiro terreiro de Candomblé tombado no Brasil (1984). Fundado por três irmãs livres, é considerado a matriz do Candomblé Ketu no país.",
+      "fontes": [
+        "IPHAN",
+        "IPHAC"
+      ],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Casa_Branca_do_Engenho_Velho.jpg/800px-Casa_Branca_do_Engenho_Velho.jpg",
+      "video": null,
+      "links": [
+        {
+          "titulo": "IPHAN - Casa Branca",
+          "url": "https://www.gov.br/iphan/pt-br"
+        }
+      ],
+      "documentos": [
+        "Tombamento 1984",
+        "Dossiê Casa Branca"
+      ],
+      "cor": "#800080"
+    },
+    {
+      "id": "porto-salvador",
+      "nome": "Porto de Salvador",
+      "categoria": "porto_desembarque",
+      "categoria_label": "Porto de Desembarque",
+      "lat": -12.9714,
+      "lon": -38.5108,
+      "cidade": "Salvador",
+      "uf": "BA",
+      "periodo": "Século XVI-XIX",
+      "descricao": "Segundo maior porto de desembarque de africanos escravizados no Brasil. Salvador foi a primeira capital e centro do tráfico negreiro na colônia.",
+      "fontes": [
+        "IPHAN",
+        "UNESCO",
+        "Voyages Database"
+      ],
+      "imagem": null,
+      "video": null,
+      "links": [
+        {
+          "titulo": "Slave Voyages",
+          "url": "https://www.slavevoyages.org/"
+        }
+      ],
+      "documentos": [
+        "Mapas portuários colonial",
+        "Registros de desembarque"
+      ],
+      "cor": "#4169E1"
+    },
+    {
+      "id": "porto-recife",
+      "nome": "Porto do Recife",
+      "categoria": "porto_desembarque",
+      "categoria_label": "Porto de Desembarque",
+      "lat": -8.0476,
+      "lon": -34.877,
+      "cidade": "Recife",
+      "uf": "PE",
+      "periodo": "Século XVI-XIX",
+      "descricao": "Importante porto de desembarque no Nordeste. Recife e Olinda concentraram grande número de africanos escravizados para trabalho nos engenhos de açúcar.",
+      "fontes": [
+        "IPHAN",
+        "Voyages Database"
+      ],
+      "imagem": null,
+      "video": null,
+      "links": [
+        {
+          "titulo": "Slave Voyages",
+          "url": "https://www.slavevoyages.org/"
+        }
+      ],
+      "documentos": [
+        "Registros coloniais PE"
+      ],
+      "cor": "#4169E1"
+    },
+    {
+      "id": "navio-negreiro-campos",
+      "nome": "Sítio Arqueológico Navio Negreiro",
+      "categoria": "sitio_arqueologico",
+      "categoria_label": "Sítio Arqueológico",
+      "lat": -21.75,
+      "lon": -41.3333,
+      "cidade": "Campos dos Goytacazes",
+      "uf": "RJ",
+      "periodo": "Século XIX",
+      "descricao": "Área de pesquisa arqueológica sobre navios negreiros. O projeto Slave Wrecks e pesquisadores brasileiros investigam vestígios de embarcações do tráfico atlântico.",
+      "fontes": [
+        "IPHAN",
+        "Slave Wrecks Project",
+        "UFRJ"
+      ],
+      "imagem": null,
+      "video": null,
+      "links": [
+        {
+          "titulo": "Slave Wrecks Project",
+          "url": "https://slavewrecks.org/"
+        }
+      ],
+      "documentos": [
+        "Relatórios arqueológicos UFRJ"
+      ],
+      "cor": "#8B0000"
+    },
+    {
+      "id": "quilombo-dos-machados",
+      "nome": "Quilombo dos Machados",
+      "categoria": "quilombo",
+      "categoria_label": "Quilombo / Território",
+      "lat": -3.1,
+      "lon": -60.0167,
+      "cidade": "Manaus",
+      "uf": "AM",
+      "periodo": "Século XVIII-XIX",
+      "descricao": "Comunidade remanescente de quilombo na região amazônica. Exemplo da resistência negra também na floresta amazônica.",
+      "fontes": [
+        "INCRA",
+        "FCP",
+        "Conaq"
+      ],
+      "imagem": null,
+      "video": null,
+      "links": [
+        {
+          "titulo": "INCRA",
+          "url": "https://www.gov.br/incra/pt-br"
+        }
+      ],
+      "documentos": [
+        "Processo de titulação INCRA"
+      ],
+      "cor": "#228B22"
+    }
+  ],
+  "categorias": {
+    "quilombo": {
+      "label": "Quilombos / Territórios",
+      "cor": "#228B22",
+      "icone": "tree"
+    },
+    "terreiro": {
+      "label": "Terreiros de Matriz Africana",
+      "cor": "#800080",
+      "icone": "place-of-worship"
+    },
+    "monumento": {
+      "label": "Monumentos Históricos",
+      "cor": "#D4AF37",
+      "icone": "landmark"
+    },
+    "sitio_arqueologico": {
+      "label": "Sítios Arqueológicos",
+      "cor": "#8B0000",
+      "icone": "search"
+    },
+    "bem_imaterial": {
+      "label": "Bens Culturais Imateriais",
+      "cor": "#FF8C00",
+      "icone": "music"
+    },
+    "memorial": {
+      "label": "Memoriais",
+      "cor": "#2F4F4F",
+      "icone": "monument"
+    },
+    "porto_desembarque": {
+      "label": "Portos de Desembarque",
+      "cor": "#4169E1",
+      "icone": "ship"
+    }
+  },
+  "documentos_gerais": [
+    {
+      "titulo": "Dossiê UNESCO - Cais do Valongo",
+      "autor": "IPHAN / Prefeitura do Rio",
+      "ano": "2016",
+      "tipo": "dossie",
+      "url": "https://whc.unesco.org/en/list/1548/documents/",
+      "descricao": "Documento de candidatura do Cais do Valongo à Lista do Patrimônio Mundial."
+    },
+    {
+      "titulo": "Lei 15.203/2025 - Patrimônio Afro-Brasileiro do Cais do Valongo",
+      "autor": "Congresso Nacional",
+      "ano": "2025",
+      "tipo": "legislacao",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15203.htm",
+      "descricao": "Reconhece o Cais do Valongo como patrimônio histórico e cultural afro-brasileiro essencial à formação da identidade nacional."
+    },
+    {
+      "titulo": "Plano de Salvaguarda da Capoeira",
+      "autor": "IPHAN",
+      "ano": "2010",
+      "tipo": "plano",
+      "url": "https://www.gov.br/iphan/pt-br/assuntos/publicacoes-patrimonio-de-matriz-africana",
+      "descricao": "Diretrizes para preservação do Ofício dos Mestres de Capoeira e da Roda de Capoeira."
+    },
+    {
+      "titulo": "Plano de Salvaguarda do Maracatu Nação",
+      "autor": "IPHAN-PE",
+      "ano": "2012",
+      "tipo": "plano",
+      "url": "https://www.gov.br/iphan/pt-br/assuntos/publicacoes-patrimonio-de-matriz-africana",
+      "descricao": "Ações para perpetuação do Maracatu Nação em Pernambuco."
+    },
+    {
+      "titulo": "Dossiê dos Bens Culturais Registrados - Patrimônio de Matriz Africana",
+      "autor": "IPHAN",
+      "ano": "2023",
+      "tipo": "dossie",
+      "url": "https://www.gov.br/iphan/pt-br/assuntos/publicacoes-patrimonio-de-matriz-africana",
+      "descricao": "Coleção de dossiês sobre bens do Patrimônio de Matriz Africana (PMAF)."
+    },
+    {
+      "titulo": "Decreto 4.887/2003 - Titulação de Territórios Quilombolas",
+      "autor": "Presidência da República",
+      "ano": "2003",
+      "tipo": "legislacao",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto/2003/d4887.htm",
+      "descricao": "Regulamenta o art. 68 do Ato das Disposições Constitucionais Transitórias, referente à titulação de territórios quilombolas."
+    },
+    {
+      "titulo": "Lei 10.639/2003 - História e Cultura Afro-Brasileira",
+      "autor": "Congresso Nacional",
+      "ano": "2003",
+      "tipo": "legislacao",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/2003/l10.639.htm",
+      "descricao": "Determina a inclusão da temática História e Cultura Afro-Brasileira nos currículos escolares."
+    },
+    {
+      "titulo": "Slave Voyages Database",
+      "autor": "Emory University",
+      "ano": "2023",
+      "tipo": "base_dados",
+      "url": "https://www.slavevoyages.org/",
+      "descricao": "Base de dados internacional sobre o tráfico transatlântico de escravizados."
+    },
+    {
+      "titulo": "Acervo Fundiário - INCRA",
+      "autor": "INCRA",
+      "ano": "2024",
+      "tipo": "base_dados",
+      "url": "https://acervofundiario.incra.gov.br/",
+      "descricao": "Dados espaciais e cartoriais sobre territórios quilombolas, assentamentos e terras indígenas."
+    },
+    {
+      "titulo": "Perder a Mãe: uma jornada pela rota atlântica da escravidão",
+      "autor": "Saidiya Hartman",
+      "ano": "2021",
+      "tipo": "livro",
+      "url": "https://www.bazardo tempo.com.br/",
+      "descricao": "Obra fundamental sobre a experiência da diáspora africana e as rotas do tráfico negreiro."
+    }
+  ]
+}
