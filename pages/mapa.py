@@ -58,10 +58,8 @@ layout = dbc.Container([
 
                     html.Hr(style={"borderColor": "#D4AF37"}),
 
-                    html.Div(id="info-ponto", children=[
-                        html.P("Clique em um ponto no mapa para ver detalhes.", 
-                               className="text-muted text-center")
-                    ])
+                    html.P("Clique em um ponto no mapa para ver detalhes, fotos, vídeos e documentos.",
+                           className="text-muted text-center small")
                 ])
             ], style={"backgroundColor": "#1a1a2e", "border": "1px solid #D4AF37"})
         ], width=12, lg=3, className="mb-4"),
@@ -83,6 +81,16 @@ layout = dbc.Container([
             ], style={"backgroundColor": "#1a1a2e", "border": "1px solid #D4AF37"})
         ], width=12, lg=9)
     ]),
+
+    dbc.Offcanvas(
+        id="painel-detalhes",
+        title=html.Span("Detalhes do ponto", style={"color": "#D4AF37", "fontFamily": "Merriweather"}),
+        placement="end",
+        is_open=False,
+        scrollable=True,
+        style={"backgroundColor": "#1a1a2e", "borderLeft": "2px solid #D4AF37", "width": "420px"},
+        children=[]
+    ),
 
     dbc.Row([
         dbc.Col([
@@ -111,7 +119,9 @@ layout = dbc.Container([
 
 @callback(
     Output("mapa-memoria", "figure"),
-    Output("info-ponto", "children"),
+    Output("painel-detalhes", "children"),
+    Output("painel-detalhes", "is_open"),
+    Output("painel-detalhes", "title"),
     Output("total-pontos", "children"),
     Output("total-categorias", "children"),
     Output("total-estados", "children"),
@@ -126,6 +136,8 @@ def update_mapa(cats, ufs, click_data):
     if ufs:
         dff = dff[dff["uf"].isin(ufs)]
 
+    painel_titulo = html.Span("Detalhes do ponto", style={"color": "#D4AF37", "fontFamily": "Merriweather"})
+
     if dff.empty:
         fig = go.Figure()
         fig.update_layout(
@@ -137,7 +149,7 @@ def update_mapa(cats, ufs, click_data):
             font_color="#F5F5DC",
             margin={"r":0,"t":0,"l":0,"b":0}
         )
-        return fig, html.P("Nenhum ponto encontrado.", className="text-warning"), "0 pontos", "0 categorias", "0 estados"
+        return fig, [], False, painel_titulo, "0 pontos", "0 categorias", "0 estados"
 
     dff["cor"] = dff["categoria"].apply(lambda x: categorias.get(x, {}).get("cor", "#D4AF37"))
 
@@ -168,27 +180,66 @@ def update_mapa(cats, ufs, click_data):
         margin={"r":0,"t":0,"l":0,"b":0}
     )
 
-    info = html.Div([
-        html.P("Clique em um ponto no mapa para ver detalhes.", className="text-muted text-center")
-    ])
+    painel_children = []
+    painel_open = False
 
-    if click_data:
+    triggered_id = dash.callback_context.triggered[0]["prop_id"].split(".")[0] if dash.callback_context.triggered else None
+
+    if click_data and triggered_id == "mapa-memoria":
         ponto_nome = click_data["points"][0]["hovertext"]
-        ponto = dff[dff["nome"] == ponto_nome].iloc[0]
+        pontos_encontrados = dff[dff["nome"] == ponto_nome]
 
-        info = html.Div([
-            html.H5(ponto["nome"], style={"color": "#D4AF37"}),
-            html.P([html.Strong("Categoria: "), 
-                    html.Span(ponto["categoria_label"], style={"color": ponto["cor"]})]),
-            html.P([html.Strong("Local: "), f"{ponto['cidade']}, {ponto['uf']}"]),
-            html.P([html.Strong("Período: "), ponto["periodo"]]),
-            html.P(ponto["descricao"], className="small"),
-            html.Hr(style={"borderColor": "#D4AF37"}),
-            html.P([html.Strong("Fontes: "), ", ".join(ponto["fontes"])], className="small text-muted"),
-        ])
+        if not pontos_encontrados.empty:
+            ponto = pontos_encontrados.iloc[0]
+            painel_titulo = html.Span(ponto["nome"], style={"color": "#D4AF37", "fontFamily": "Merriweather"})
+            painel_open = True
+
+            blocos = [
+                html.P([html.Strong("Categoria: "),
+                        html.Span(ponto["categoria_label"], style={"color": ponto["cor"]})]),
+                html.P([html.Strong("Local: "), f"{ponto['cidade']}, {ponto['uf']}"]),
+                html.P([html.Strong("Período: "), ponto["periodo"]]),
+                html.P(ponto["descricao"]),
+            ]
+
+            if ponto.get("imagem"):
+                blocos.append(
+                    html.Img(src=ponto["imagem"], className="img-fluid rounded mb-3",
+                              style={"width": "100%", "border": "1px solid #D4AF37"})
+                )
+
+            if ponto.get("video"):
+                blocos.append(
+                    html.Div(
+                        html.Iframe(
+                            src=ponto["video"],
+                            style={"width": "100%", "height": "220px", "border": "none"},
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        ),
+                        className="mb-3"
+                    )
+                )
+
+            blocos.append(html.Hr(style={"borderColor": "#D4AF37"}))
+            blocos.append(html.P([html.Strong("Fontes: "), ", ".join(ponto["fontes"])], className="small text-muted"))
+
+            documentos = ponto.get("documentos") or []
+            if len(documentos) > 0:
+                blocos.append(html.H6("📚 Documentos", className="mt-3", style={"color": "#D4AF37"}))
+                blocos.append(html.Ul([html.Li(doc, className="small") for doc in documentos]))
+
+            links = ponto.get("links") or []
+            if len(links) > 0:
+                blocos.append(html.H6("🔗 Links", className="mt-3", style={"color": "#D4AF37"}))
+                blocos.append(html.Ul([
+                    html.Li(html.A(link["titulo"], href=link["url"], target="_blank"), className="small")
+                    for link in links
+                ]))
+
+            painel_children = blocos
 
     total_p = f"{len(dff)} ponto{'s' if len(dff) > 1 else ''}"
     total_c = f"{dff['categoria'].nunique()} categoria{'s' if dff['categoria'].nunique() > 1 else ''}"
     total_e = f"{dff['uf'].nunique()} estado{'s' if dff['uf'].nunique() > 1 else ''}"
 
-    return fig, info, total_p, total_c, total_e
+    return fig, painel_children, painel_open, painel_titulo, total_p, total_c, total_e
