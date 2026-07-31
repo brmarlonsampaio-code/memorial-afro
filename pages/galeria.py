@@ -11,8 +11,8 @@ with open("data/pontos_memoria.json", "r", encoding="utf-8") as f:
 pontos = DATA["pontos"]
 
 layout = dbc.Container([
-    html.H2("🎞️ Galeria de Memória", 
-            className="mb-2", style={"color": "#D4AF37", "fontFamily": "Merriweather"}),
+    html.H2("Galeria de Memória", 
+            className="mb-2", style={"color": "#1B3A5C", "fontFamily": "Merriweather"}),
     html.P("Imagens, vídeos e registros visuais do patrimônio afro-brasileiro.", 
            className="text-muted mb-4"),
 
@@ -45,11 +45,11 @@ def update_galeria(ponto_id):
                 dbc.Card([
                     dbc.CardImg(src=p["imagem"], top=True, style={"height": "250px", "objectFit": "cover"}),
                     dbc.CardBody([
-                        html.H5(p["nome"], className="card-title", style={"color": "#D4AF37"}),
+                        html.H5(p["nome"], className="card-title", style={"color": "#1B3A5C"}),
                         html.P(p["categoria_label"], className="card-text small text-muted"),
                         html.P(f"{p['cidade']}, {p['uf']}", className="card-text small")
                     ])
-                ], style={"backgroundColor": "#1a1a2e", "border": "1px solid #D4AF37", "height": "100%"})
+                ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4", "height": "100%"})
             ], width=12, md=6, lg=4, className="mb-4"))
 
         if p.get("video"):
@@ -62,10 +62,10 @@ def update_galeria(ponto_id):
                         )
                     ]),
                     dbc.CardBody([
-                        html.H5(f"📹 {p['nome']}", className="card-title", style={"color": "#D4AF37"}),
+                        html.H5(f"{p['nome']}", className="card-title", style={"color": "#1B3A5C"}),
                         html.P("Registro em vídeo", className="card-text small text-muted")
                     ])
-                ], style={"backgroundColor": "#1a1a2e", "border": "1px solid #D4AF37", "height": "100%"})
+                ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4", "height": "100%"})
             ], width=12, md=6, lg=4, className="mb-4"))
 
     if not cards:

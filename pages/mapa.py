@@ -15,8 +15,8 @@ df = pd.DataFrame(DATA["pontos"])
 categorias = DATA["categorias"]
 
 layout = dbc.Container([
-    html.H2("🗺️ Mapa da Memória Afro-Brasileira", 
-            className="mb-2", style={"color": "#D4AF37", "fontFamily": "Merriweather"}),
+    html.H2("Mapa da Memória Afro-Brasileira", 
+            className="mb-2", style={"color": "#1B3A5C", "fontFamily": "Merriweather"}),
     html.P("Explore os pontos de memória, patrimônio e resistência negra no Brasil.", 
            className="text-muted mb-4"),
 
@@ -24,7 +24,7 @@ layout = dbc.Container([
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
-                    html.H5("Filtros", className="card-title", style={"color": "#D4AF37"}),
+                    html.H5("Filtros", className="card-title", style={"color": "#1B3A5C"}),
 
                     html.Label("Categoria", className="fw-bold text-light"),
                     dcc.Dropdown(
@@ -46,7 +46,7 @@ layout = dbc.Container([
                         style={"color": "#000"}
                     ),
 
-                    html.Hr(style={"borderColor": "#D4AF37"}),
+                    html.Hr(style={"borderColor": "#1B3A5C"}),
 
                     html.H6("Legenda", className="text-light"),
                     html.Div([
@@ -56,12 +56,12 @@ layout = dbc.Container([
                         ], className="mb-1") for k, v in categorias.items()
                     ]),
 
-                    html.Hr(style={"borderColor": "#D4AF37"}),
+                    html.Hr(style={"borderColor": "#1B3A5C"}),
 
                     html.P("Clique em um ponto no mapa para ver detalhes, fotos, vídeos e documentos.",
                            className="text-muted text-center small")
                 ])
-            ], style={"backgroundColor": "#1a1a2e", "border": "1px solid #D4AF37"})
+            ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4"})
         ], width=12, lg=3, className="mb-4"),
 
         dbc.Col([
@@ -70,7 +70,7 @@ layout = dbc.Container([
                     dcc.Loading(
                         id="loading-mapa",
                         type="circle",
-                        color="#D4AF37",
+                        color="#1B3A5C",
                         children=dcc.Graph(
                             id="mapa-memoria",
                             config={"displayModeBar": True, "scrollZoom": True},
@@ -78,17 +78,17 @@ layout = dbc.Container([
                         )
                     )
                 ])
-            ], style={"backgroundColor": "#1a1a2e", "border": "1px solid #D4AF37"})
+            ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4"})
         ], width=12, lg=9)
     ]),
 
     dbc.Offcanvas(
         id="painel-detalhes",
-        title=html.Span("Detalhes do ponto", style={"color": "#D4AF37", "fontFamily": "Merriweather"}),
+        title=html.Span("Detalhes do ponto", style={"color": "#1B3A5C", "fontFamily": "Merriweather"}),
         placement="end",
         is_open=False,
         scrollable=True,
-        style={"backgroundColor": "#1a1a2e", "borderLeft": "2px solid #D4AF37", "width": "420px"},
+        style={"backgroundColor": "#F7F8FA", "borderLeft": "2px solid #1B3A5C", "width": "420px"},
         children=[]
     ),
 
@@ -96,23 +96,23 @@ layout = dbc.Container([
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
-                    html.H4(id="total-pontos", className="text-center", style={"color": "#D4AF37"})
+                    html.H4(id="total-pontos", className="text-center", style={"color": "#1B3A5C"})
                 ])
-            ], style={"backgroundColor": "#1a1a2e", "border": "1px solid #D4AF37"})
+            ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4"})
         ], width=4),
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
-                    html.H4(id="total-categorias", className="text-center", style={"color": "#D4AF37"})
+                    html.H4(id="total-categorias", className="text-center", style={"color": "#1B3A5C"})
                 ])
-            ], style={"backgroundColor": "#1a1a2e", "border": "1px solid #D4AF37"})
+            ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4"})
         ], width=4),
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
-                    html.H4(id="total-estados", className="text-center", style={"color": "#D4AF37"})
+                    html.H4(id="total-estados", className="text-center", style={"color": "#1B3A5C"})
                 ])
-            ], style={"backgroundColor": "#1a1a2e", "border": "1px solid #D4AF37"})
+            ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4"})
         ], width=4),
     ], className="mt-4")
 ], fluid=True)
@@ -136,7 +136,7 @@ def update_mapa(cats, ufs, click_data):
     if ufs:
         dff = dff[dff["uf"].isin(ufs)]
 
-    painel_titulo = html.Span("Detalhes do ponto", style={"color": "#D4AF37", "fontFamily": "Merriweather"})
+    painel_titulo = html.Span("Detalhes do ponto", style={"color": "#1B3A5C", "fontFamily": "Merriweather"})
 
     if dff.empty:
         fig = go.Figure()
@@ -144,14 +144,14 @@ def update_mapa(cats, ufs, click_data):
             mapbox_style="open-street-map",
             mapbox_center={"lat": -14.2, "lon": -51.9},
             mapbox_zoom=3,
-            paper_bgcolor="#0f0f1a",
-            plot_bgcolor="#0f0f1a",
-            font_color="#F5F5DC",
+            paper_bgcolor="#FFFFFF",
+            plot_bgcolor="#FFFFFF",
+            font_color="#2B2B2B",
             margin={"r":0,"t":0,"l":0,"b":0}
         )
         return fig, [], False, painel_titulo, "0 pontos", "0 categorias", "0 estados"
 
-    dff["cor"] = dff["categoria"].apply(lambda x: categorias.get(x, {}).get("cor", "#D4AF37"))
+    dff["cor"] = dff["categoria"].apply(lambda x: categorias.get(x, {}).get("cor", "#1B3A5C"))
 
     fig = px.scatter_mapbox(
         dff,
@@ -168,15 +168,10 @@ def update_mapa(cats, ufs, click_data):
 
     fig.update_layout(
         mapbox_style="open-street-map",
-        paper_bgcolor="#0f0f1a",
-        plot_bgcolor="#0f0f1a",
-        font_color="#F5F5DC",
-        legend=dict(
-            bgcolor="rgba(26,26,46,0.9)",
-            bordercolor="#D4AF37",
-            borderwidth=1,
-            font=dict(color="#F5F5DC")
-        ),
+        paper_bgcolor="#FFFFFF",
+        plot_bgcolor="#FFFFFF",
+        font_color="#2B2B2B",
+        showlegend=False,
         margin={"r":0,"t":0,"l":0,"b":0}
     )
 
@@ -191,7 +186,7 @@ def update_mapa(cats, ufs, click_data):
 
         if not pontos_encontrados.empty:
             ponto = pontos_encontrados.iloc[0]
-            painel_titulo = html.Span(ponto["nome"], style={"color": "#D4AF37", "fontFamily": "Merriweather"})
+            painel_titulo = html.Span(ponto["nome"], style={"color": "#1B3A5C", "fontFamily": "Merriweather"})
             painel_open = True
 
             blocos = [
@@ -205,7 +200,7 @@ def update_mapa(cats, ufs, click_data):
             if ponto.get("imagem"):
                 blocos.append(
                     html.Img(src=ponto["imagem"], className="img-fluid rounded mb-3",
-                              style={"width": "100%", "border": "1px solid #D4AF37"})
+                              style={"width": "100%", "border": "1px solid #D9DEE4"})
                 )
 
             if ponto.get("video"):
@@ -220,17 +215,17 @@ def update_mapa(cats, ufs, click_data):
                     )
                 )
 
-            blocos.append(html.Hr(style={"borderColor": "#D4AF37"}))
+            blocos.append(html.Hr(style={"borderColor": "#1B3A5C"}))
             blocos.append(html.P([html.Strong("Fontes: "), ", ".join(ponto["fontes"])], className="small text-muted"))
 
             documentos = ponto.get("documentos") or []
             if len(documentos) > 0:
-                blocos.append(html.H6("📚 Documentos", className="mt-3", style={"color": "#D4AF37"}))
+                blocos.append(html.H6("Documentos", className="mt-3", style={"color": "#1B3A5C"}))
                 blocos.append(html.Ul([html.Li(doc, className="small") for doc in documentos]))
 
             links = ponto.get("links") or []
             if len(links) > 0:
-                blocos.append(html.H6("🔗 Links", className="mt-3", style={"color": "#D4AF37"}))
+                blocos.append(html.H6("Links", className="mt-3", style={"color": "#1B3A5C"}))
                 blocos.append(html.Ul([
                     html.Li(html.A(link["titulo"], href=link["url"], target="_blank"), className="small")
                     for link in links
