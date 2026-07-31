@@ -129,7 +129,7 @@ def update_mapa(cats, ufs, click_data):
     if dff.empty:
         fig = go.Figure()
         fig.update_layout(
-            mapbox_style="carto-darkmatter",
+            mapbox_style="open-street-map",
             mapbox_center={"lat": -14.2, "lon": -51.9},
             mapbox_zoom=3,
             paper_bgcolor="#0f0f1a",
@@ -155,7 +155,7 @@ def update_mapa(cats, ufs, click_data):
     )
 
     fig.update_layout(
-        mapbox_style="carto-darkmatter",
+        mapbox_style="open-street-map",
         paper_bgcolor="#0f0f1a",
         plot_bgcolor="#0f0f1a",
         font_color="#F5F5DC",
