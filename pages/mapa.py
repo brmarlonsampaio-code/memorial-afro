@@ -144,6 +144,32 @@ def linha_midia(ponto):
 
     return dbc.Row([imagem_col, documentos_col])
 
+def calcular_centro_zoom(dff):
+    if len(dff) == 1:
+        return {"lat": dff["lat"].iloc[0], "lon": dff["lon"].iloc[0]}, 10
+
+    lat_range = dff["lat"].max() - dff["lat"].min()
+    lon_range = dff["lon"].max() - dff["lon"].min()
+    maior_extensao = max(lat_range, lon_range)
+
+    if maior_extensao < 0.5:
+        zoom = 9
+    elif maior_extensao < 1:
+        zoom = 8
+    elif maior_extensao < 2:
+        zoom = 7
+    elif maior_extensao < 4:
+        zoom = 6
+    elif maior_extensao < 8:
+        zoom = 5
+    elif maior_extensao < 15:
+        zoom = 4.2
+    else:
+        zoom = 3.3
+
+    centro = {"lat": dff["lat"].mean(), "lon": dff["lon"].mean()}
+    return centro, zoom
+
 @callback(
     Output("mapa-memoria", "figure"),
     Output("painel-detalhes", "children"),
@@ -178,6 +204,8 @@ def update_mapa(cats, ufs, click_data):
 
     dff["cor"] = dff["categoria"].apply(lambda x: categorias.get(x, {}).get("cor", "#1B3A5C"))
 
+    centro, zoom = calcular_centro_zoom(dff)
+
     fig = px.scatter_mapbox(
         dff,
         lat="lat",
@@ -186,8 +214,8 @@ def update_mapa(cats, ufs, click_data):
         color_discrete_map={v["label"]: v["cor"] for k, v in categorias.items()},
         hover_name="nome",
         hover_data={"cidade": True, "uf": True, "periodo": True, "lat": False, "lon": False, "cor": False},
-        zoom=3.5,
-        center={"lat": -14.2, "lon": -51.9},
+        zoom=zoom,
+        center=centro,
         height=700
     )
 
