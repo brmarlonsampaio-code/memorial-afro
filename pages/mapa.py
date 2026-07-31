@@ -26,7 +26,7 @@ layout = dbc.Container([
                 dbc.CardBody([
                     html.H5("Filtros", className="card-title", style={"color": "#1B3A5C"}),
 
-                    html.Label("Categoria", className="fw-bold text-light"),
+                    html.Label("Categoria", className="fw-bold", style={"color": "#1B3A5C"}),
                     dcc.Dropdown(
                         id="filtro-categoria",
                         options=[{"label": v["label"], "value": k} for k, v in categorias.items()],
@@ -36,7 +36,7 @@ layout = dbc.Container([
                         style={"color": "#000"}
                     ),
 
-                    html.Label("Estado (UF)", className="fw-bold text-light"),
+                    html.Label("Estado (UF)", className="fw-bold", style={"color": "#1B3A5C"}),
                     dcc.Dropdown(
                         id="filtro-uf",
                         options=[{"label": uf, "value": uf} for uf in sorted(df["uf"].unique())],
@@ -48,11 +48,11 @@ layout = dbc.Container([
 
                     html.Hr(style={"borderColor": "#1B3A5C"}),
 
-                    html.H6("Legenda", className="text-light"),
+                    html.H6("Legenda", style={"color": "#1B3A5C"}),
                     html.Div([
                         html.Div([
                             html.Span("⬤", style={"color": v["cor"], "marginRight": "8px", "fontSize": "1.2rem"}),
-                            html.Span(v["label"], className="text-light small")
+                            html.Span(v["label"], className="small", style={"color": "#2B2B2B"})
                         ], className="mb-1") for k, v in categorias.items()
                     ]),
 
