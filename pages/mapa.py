@@ -92,39 +92,64 @@ layout = dbc.Container([
         children=[]
     ),
 
-    dbc.Row([
-        dbc.Col([
-            dbc.Card([
-                dbc.CardBody([
-                    html.H4(id="total-pontos", className="text-center", style={"color": "#1B3A5C"})
-                ])
-            ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4"})
-        ], width=4),
-        dbc.Col([
-            dbc.Card([
-                dbc.CardBody([
-                    html.H4(id="total-categorias", className="text-center", style={"color": "#1B3A5C"})
-                ])
-            ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4"})
-        ], width=4),
-        dbc.Col([
-            dbc.Card([
-                dbc.CardBody([
-                    html.H4(id="total-estados", className="text-center", style={"color": "#1B3A5C"})
-                ])
-            ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4"})
-        ], width=4),
-    ], className="mt-4")
+    html.Div(id="rodape-mapa", className="mt-4")
 ], fluid=True)
+
+def linha_estatisticas(total_p, total_c, total_e):
+    def card(texto):
+        return dbc.Col([
+            dbc.Card([
+                dbc.CardBody([
+                    html.H4(texto, className="text-center", style={"color": "#1B3A5C"})
+                ])
+            ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4"})
+        ], width=4)
+
+    return dbc.Row([card(total_p), card(total_c), card(total_e)])
+
+def linha_midia(ponto):
+    imagem_col = dbc.Col([
+        dbc.Card([
+            dbc.CardImg(src=ponto["imagem"], top=True, style={"maxHeight": "320px", "objectFit": "cover"})
+            if ponto.get("imagem") else
+            dbc.CardBody(html.P("Sem foto cadastrada para este ponto.", className="text-muted text-center mb-0"))
+        ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4", "height": "100%"})
+    ], width=12, lg=6, className="mb-3 mb-lg-0")
+
+    documentos = ponto.get("documentos") or []
+    links = ponto.get("links") or []
+
+    if documentos or links:
+        conteudo_docs = []
+        if documentos:
+            conteudo_docs.append(html.Ul([html.Li(doc, className="small") for doc in documentos]))
+        if links:
+            conteudo_docs.append(html.Ul([
+                html.Li(html.A(link["titulo"], href=link["url"], target="_blank"), className="small")
+                for link in links
+            ]))
+    else:
+        conteudo_docs = [html.P("Nenhum documento cadastrado para este ponto.", className="text-muted mb-0")]
+
+    documentos_col = dbc.Col([
+        dbc.Card([
+            dbc.CardBody([
+                html.H5(ponto["nome"], style={"color": "#1B3A5C", "fontFamily": "Merriweather"}),
+                html.P(f"{ponto['cidade']}, {ponto['uf']}", className="text-muted small mb-3"),
+                html.H6("Documentos e fontes", style={"color": "#1B3A5C"}),
+                *conteudo_docs
+            ])
+        ], style={"backgroundColor": "#F7F8FA", "border": "1px solid #D9DEE4", "height": "100%"})
+    ], width=12, lg=6)
+
+    return dbc.Row([imagem_col, documentos_col])
 
 @callback(
     Output("mapa-memoria", "figure"),
     Output("painel-detalhes", "children"),
     Output("painel-detalhes", "is_open"),
     Output("painel-detalhes", "title"),
-    Output("total-pontos", "children"),
-    Output("total-categorias", "children"),
-    Output("total-estados", "children"),
+    Output("rodape-mapa", "children"),
     Input("filtro-categoria", "value"),
     Input("filtro-uf", "value"),
     Input("mapa-memoria", "clickData")
@@ -149,7 +174,7 @@ def update_mapa(cats, ufs, click_data):
             font_color="#2B2B2B",
             margin={"r":0,"t":0,"l":0,"b":0}
         )
-        return fig, [], False, painel_titulo, "0 pontos", "0 categorias", "0 estados"
+        return fig, [], False, painel_titulo, linha_estatisticas("0 pontos", "0 categorias", "0 estados")
 
     dff["cor"] = dff["categoria"].apply(lambda x: categorias.get(x, {}).get("cor", "#1B3A5C"))
 
@@ -177,6 +202,7 @@ def update_mapa(cats, ufs, click_data):
 
     painel_children = []
     painel_open = False
+    ponto_clicado = None
 
     triggered_id = dash.callback_context.triggered[0]["prop_id"].split(".")[0] if dash.callback_context.triggered else None
 
@@ -186,6 +212,7 @@ def update_mapa(cats, ufs, click_data):
 
         if not pontos_encontrados.empty:
             ponto = pontos_encontrados.iloc[0]
+            ponto_clicado = ponto
             painel_titulo = html.Span(ponto["nome"], style={"color": "#1B3A5C", "fontFamily": "Merriweather"})
             painel_open = True
 
@@ -237,4 +264,9 @@ def update_mapa(cats, ufs, click_data):
     total_c = f"{dff['categoria'].nunique()} categoria{'s' if dff['categoria'].nunique() > 1 else ''}"
     total_e = f"{dff['uf'].nunique()} estado{'s' if dff['uf'].nunique() > 1 else ''}"
 
-    return fig, painel_children, painel_open, painel_titulo, total_p, total_c, total_e
+    if ponto_clicado is not None:
+        rodape = linha_midia(ponto_clicado)
+    else:
+        rodape = linha_estatisticas(total_p, total_c, total_e)
+
+    return fig, painel_children, painel_open, painel_titulo, rodape
